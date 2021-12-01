@@ -1,6 +1,6 @@
 import { NumberLiteralType } from "typescript";
 
-interface Mountain{
+ interface Mountain{
     name: string;
     height: number;
 }
@@ -12,28 +12,21 @@ const mountains: Mountain[] = [
 ];
 
 function findNameOfTallestMountain(mountains: Mountain[]): string {
- // var max = Math.max.apply(Math, mountains.map(function (o) {return o.height;}))
-  //var obj = mountains.find(function(o) {return o.height == max; })
- for (var mountain in mountains){
-     if (mountains.h)
- }
-  for ( var mountain in mountains){
-    console.log(max);
-  }
+  var max = Math.max.apply(Math, mountains.map(function (o) {return o.height;}))
+  var obj = mountains.find(function(o) {return o.height == max; })
 
-  return "max.name";
-  
-}
+  return obj!.name
+};
 
 const tallMount = findNameOfTallestMountain(mountains);
-console.log(tallMount);
+console.log(tallMount); 
 
 
  
-/* interface Product{
+  interface Product{
     name: string;
     price: number;
-}
+};
 
 let products: {name: string, price: number}[] = [
     {name: "Mood Pod", price: 260 },
@@ -43,28 +36,48 @@ let products: {name: string, price: number}[] = [
 ];
 
 
-function calcAverageProductPrice(products: Product[]): number{
-    prod
+ function calcAverageProductPrice(products: Product[]): number{
+    var total = 0;
+    for (var i=0; i<products.length; i++){
+        total += products[i].price
+    };
+
+    var avg = total / products.length;
+    return avg;
 };
 
 const AvgPrice = calcAverageProductPrice(products);
 console.log(AvgPrice);
- */
+ 
 
-/* interface InventoryItem{
-    product: Product;
-    quantity: Number;
+interface InventoryItem{
+    name: Product["name"],
+    price: Product["price"],
+    quantity: number;
 }
 
-const inventory: InventoryItem[] =[
-    {Product.name: "motor", product.price: 10.00, quantity: 10},
-    {Product.name: "sensor", product.price: 12.50, quantity: 4},
-    {Product.name: "LED", product.price: 1.00, quantity: 20}
+let inventory: InventoryItem[] = [
+    {name: "motor", price: 10.00, quantity: 10},
+    {name: "sensor", price: 12.50, quantity: 4},
+    {name: "LED", price: 1.00, quantity: 20},
+
 ];
 
-function calcInventoryValue(inventory: InventoryItem[]): number{
 
+inventory.forEach(function (value) {
+  console.log(value);
+}); 
+
+
+
+function calcInventoryValue(inventory: InventoryItem[]): number{
+    var total = 0;
+    for (var i=0; i < inventory.length; i++){
+        total += inventory[i].price * inventory[i].quantity;
+    }
+
+    return total;
 }
 
 const calcValue = calcInventoryValue(inventory);
-console.log(calcValue); */
+console.log(calcValue); 

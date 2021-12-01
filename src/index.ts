@@ -80,4 +80,4 @@ function calcInventoryValue(inventory: InventoryItem[]): number{
 }
 
 const calcValue = calcInventoryValue(inventory);
-console.log(calcValue); 
+console.log(calcValue);
